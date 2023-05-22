@@ -3,24 +3,42 @@ var playerWin = 0;
 var computerWin = 0;
 var draw = 0;
 
+let gamePromise = new Promise(function(resolve, reject){
+  
+})
+
+//Player Logic
+function playerChoice() {
+  let pc = document.querySelectorAll('button');
+  rock = pc[0];
+  paper = pc[1];
+  scissors = pc[2];
+  
+  rock.onclick = function (){
+    document.getElementById('pc').value = "rock";
+  }
+  paper.onclick = function (){
+    document.getElementById('pc').value = "paper";
+  }
+  scissors.onclick = function (){
+    document.getElementById('pc').value = "scissors";
+  }
+}
+
 //AI decision logic
 function getComputerChoice() {
   var computerChoice = Math.floor(Math.random() * 3) + 1;
 
   if (computerChoice === 3) {
-    return "scissors";
+    return document.querySelector('#cpu').value = "scissors";
   } else if (computerChoice === 2) {
-    return "paper";
+    return document.querySelector("#cpu").value = "paper";
   } else {
-    return "rock";
+    return document.querySelector("#cpu").value = "rock";
   }
 }
 
-//Player Logic
-function playerChoice() {
-  var playerChoice = prompt("Choose: Rock, Paper, or Scissors");
-  return playerChoice.toLowerCase();
-}
+
 
 //Plays one round of rock, paper, scissors
 function playGame(computerChoice, playerChoice) {
@@ -77,7 +95,11 @@ function playGame(computerChoice, playerChoice) {
     }
   }
 }
+playGame(playerChoice(),getComputerChoice());
 
+
+
+// Outputs stats
 function result(){
   if (playerWin > computerWin){
     console.log("Player Wins!!!");
@@ -85,15 +107,16 @@ function result(){
     console.log("Draw");
   } else {console.log("Player Sucks LOL");}
 }
+// Loops the game for 5 rounds
+// function game(){
+//   for (let round = 1; round <= 5; round++) {
+//     playGame(getComputerChoice(), playerChoice());
+//     console.log("Player Wins: " + playerWin);
+//     console.log("Computer Wins: " + computerWin);
+//     console.log("\n");
+//   } 
+// } 
+// game();
 
-function game(){
-  for (let round = 1; round <= 5; round++) {
-    playGame(getComputerChoice(), playerChoice());
-    console.log("Player Wins: " + playerWin);
-    console.log("Computer Wins: " + computerWin);
-    console.log("\n");
-  } 
-} game();
-
-console.log(`Final Score: Player - ${playerWin} Computer - ${computerWin} Draw(s) - ${draw}`);
-console.log(result());
+// console.log(`Final Score: Player - ${playerWin} Computer - ${computerWin} Draw(s) - ${draw}`);
+// console.log(result());

@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rock Paper Scissors Game</title>
-  <script src="function.js"></script>
-</head>
-<body>
-  
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors Game</title>
+    <!-- <script src="function.js"></script> -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="function.js" defer></script>
+  </head>
+  <body>
+    <div class="ui">
+      <div class="choices">
+        <div class="playerChoice">
+          <input
+            type="text"
+            name="pc"
+            id="pc"
+            value=""
+            readonly
+            placeholder="Player Choice"
+          />
+        </div>
+        <div class="cpuChoice">
+          <input
+            type="text"
+            name="cpu"
+            id="cpu"
+            value=""
+            readonly
+            placeholder="CPU Choice"
+          />
+        </div>
+        <div class="outcome">
+          <input
+            type="text"
+            name="results"
+            id="results"
+            value=""
+            ;
+            placeholder="Results"
+          />
+        </div>
+        <!-- Div to let user know to make a choice, Javascript will update this after running -->
+        <div>Makes your Choice!!</div>
+      </div>
+
+      <div id="buttons">
+        <button id="rock" value="rock">Rock</button>
+        <button id="paper" value="paper">Paper</button>
+        <button id="scissors" value="scissors">Scissors</button>
+      </div>
+    </div>
+    <!--ui end-->
+  </body>
 </html>
