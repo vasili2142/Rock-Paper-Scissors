@@ -3,42 +3,9 @@ var playerWin = 0;
 var computerWin = 0;
 var draw = 0;
 
-let gamePromise = new Promise(function(resolve, reject){
+let gamePromise = new Promise((resolve, reject) => {
   
 })
-
-//Player Logic
-function playerChoice() {
-  let pc = document.querySelectorAll('button');
-  rock = pc[0];
-  paper = pc[1];
-  scissors = pc[2];
-  
-  rock.onclick = function (){
-    document.getElementById('pc').value = "rock";
-  }
-  paper.onclick = function (){
-    document.getElementById('pc').value = "paper";
-  }
-  scissors.onclick = function (){
-    document.getElementById('pc').value = "scissors";
-  }
-}
-
-//AI decision logic
-function getComputerChoice() {
-  var computerChoice = Math.floor(Math.random() * 3) + 1;
-
-  if (computerChoice === 3) {
-    return document.querySelector('#cpu').value = "scissors";
-  } else if (computerChoice === 2) {
-    return document.querySelector("#cpu").value = "paper";
-  } else {
-    return document.querySelector("#cpu").value = "rock";
-  }
-}
-
-
 
 //Plays one round of rock, paper, scissors
 function playGame(computerChoice, playerChoice) {
@@ -95,18 +62,52 @@ function playGame(computerChoice, playerChoice) {
     }
   }
 }
-playGame(playerChoice(),getComputerChoice());
 
+//AI decision logic
+function getComputerChoice() {
+  var computerChoice = Math.floor(Math.random() * 3) + 1;
 
-
-// Outputs stats
-function result(){
-  if (playerWin > computerWin){
-    console.log("Player Wins!!!");
-  } else if (playerWin === computerWin){
-    console.log("Draw");
-  } else {console.log("Player Sucks LOL");}
+  if (computerChoice === 3) {
+    return document.querySelector('#cpu').value = "scissors";
+  } else if (computerChoice === 2) {
+    return document.querySelector("#cpu").value = "paper";
+  } else {
+    return document.querySelector("#cpu").value = "rock";
+  }
 }
+
+//Player Logic
+function playerChoice() {
+  let pc = document.querySelectorAll('button');
+  
+  rock = pc[0];
+  paper = pc[1];
+  scissors = pc[2];
+  
+  rock.onclick = function (){
+    document.getElementById('pc').value = "rock";
+    playGame(getComputerChoice(), playerChoice());
+    result()
+  }
+  paper.onclick = function (){
+    document.getElementById('pc').value = "paper";
+    playGame(getComputerChoice(), playerChoice());
+  }
+  scissors.onclick = function (){
+    document.getElementById('pc').value = "scissors";
+    playGame(getComputerChoice(), playerChoice());
+  }
+}
+
+
+
+ playerChoice();
+
+// playGame(getComputerChoice(), playerChoice());
+
+
+
+
 // Loops the game for 5 rounds
 // function game(){
 //   for (let round = 1; round <= 5; round++) {
@@ -117,6 +118,15 @@ function result(){
 //   } 
 // } 
 // game();
+
+// Outputs stats
+function result(){
+  if (playerWin > computerWin){
+    console.log("Player Wins!!!");
+  } else if (playerWin === computerWin){
+    console.log("Draw");
+  } else {console.log("Player Sucks LOL");}
+}
 
 // console.log(`Final Score: Player - ${playerWin} Computer - ${computerWin} Draw(s) - ${draw}`);
 // console.log(result());
