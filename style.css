@@ -18,6 +18,13 @@ html{
   border: 5px solid blue;
   background-color: gray;
 }
+.ui .title {
+  text-align: center;
+  font-size: 30px;
+  color: yellow;
+  padding: 20px;
+  margin-bottom: 15px;
+}
 
 /* Choices */
 .choices{
