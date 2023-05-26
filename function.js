@@ -3,9 +3,57 @@ var playerWin = 0;
 var computerWin = 0;
 var draw = 0;
 
-let gamePromise = new Promise((resolve, reject) => {
+//Player Logic
+function playerChoice() {
+//   let pc = document.querySelectorAll('button');
+//   let btn = document.getElementById('button').value;
+//   console.log(btn);
   
-})
+//   rock = pc[0];
+//   paper = pc[1];
+//   scissors = pc[2];
+  
+//   rock.onclick = function (){
+//     document.getElementById('pc').value = "rock";
+//     result();
+//     return playGame(getComputerChoice(), btn);
+    
+//   }
+//   paper.onclick = function (){
+//     document.getElementById('pc').value = "paper";
+//     playGame(getComputerChoice(), btn);
+//     result();
+//     return playGame(getComputerChoice(), btn);
+//   }
+//   scissors.onclick = function (){
+//     document.getElementById('pc').value = "scissors";
+//     playGame(getComputerChoice(), playerChoice());
+//     result();
+//     return playGame(getComputerChoice(), btn);
+//   }
+
+  
+}
+
+function rock() {
+  let rock = document.getElementById("pc").value;
+  rock = "rock";
+  document.getElementById('pc').value = "rock";
+  return playGame(getComputerChoice(), rock);
+}
+
+//AI decision logic
+function getComputerChoice() {
+  var computerChoice = Math.floor(Math.random() * 3) + 1;
+
+  if (computerChoice === 3) {
+    return document.querySelector('#cpu').value = "scissors";
+  } else if (computerChoice === 2) {
+    return document.querySelector("#cpu").value = "paper";
+  } else {
+    return document.querySelector("#cpu").value = "rock";
+  }
+}
 
 //Plays one round of rock, paper, scissors
 function playGame(computerChoice, playerChoice) {
@@ -63,45 +111,13 @@ function playGame(computerChoice, playerChoice) {
   }
 }
 
-//AI decision logic
-function getComputerChoice() {
-  var computerChoice = Math.floor(Math.random() * 3) + 1;
-
-  if (computerChoice === 3) {
-    return document.querySelector('#cpu').value = "scissors";
-  } else if (computerChoice === 2) {
-    return document.querySelector("#cpu").value = "paper";
-  } else {
-    return document.querySelector("#cpu").value = "rock";
-  }
-}
-
-//Player Logic
-function playerChoice() {
-  let pc = document.querySelectorAll('button');
-  
-  rock = pc[0];
-  paper = pc[1];
-  scissors = pc[2];
-  
-  rock.onclick = function (){
-    document.getElementById('pc').value = "rock";
-    playGame(getComputerChoice(), playerChoice());
-    result()
-  }
-  paper.onclick = function (){
-    document.getElementById('pc').value = "paper";
-    playGame(getComputerChoice(), playerChoice());
-  }
-  scissors.onclick = function (){
-    document.getElementById('pc').value = "scissors";
-    playGame(getComputerChoice(), playerChoice());
-  }
-}
 
 
 
- playerChoice();
+
+playerChoice();
+
+//  playerChoice();
 
 // playGame(getComputerChoice(), playerChoice());
 
